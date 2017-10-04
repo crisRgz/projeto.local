@@ -18,9 +18,8 @@ class EmpregadoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
-
     {
+        // fixen cambios. quero probar si se ven para subir a GitHub
         $empregados = DB::table('empregados')
         ->join('empregado_empresa','empregado_empresa.idEmpo','=','empregados.id')
         ->select('empregados.id as idEmpo','empregados.nome as nomeEmpo','empregados.apelido1 as apelido1Empo','empregados.apelido2 as apelido2Empo','empregados.NIF as NIFEmpo','empregado_empresa.idEmpa as idEmpa','empregados.idUser as idUser')
