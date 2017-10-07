@@ -31,3 +31,23 @@ Route::get('/home', 'HomeController@index')->name('home'); // páxina na que ent
 Route::post('/empregado', 'EmpregadoController@create')->name('empregado');  // metodo create para gardar as novas altas n
 Route::post('/familiar', 'FamiliarController@create')->name('familiar');	 // no controller do seu rol
 Route::post('/empresa', 'EmpresaController@create')->name('empresa');
+// Links de home
+/*
+Route::get('/wwd', 'HomeController@wwd');
+Route::get('/wycd', 'HomeController@wycd');
+Route::get('/blog', 'HomeController@blog');
+Route::get('/help', 'HomeController@help');
+Route::get('/news', 'HomeController@news'); */
+
+Route::get('/wwd', function () {
+    return view('wwd');
+});
+Route::get('/wycd', function () {
+    return view('wycd');
+});
+Route::get('/news', function () {
+    return view('news');
+});
+Route::get('/help', function () {
+    return view('help');
+});

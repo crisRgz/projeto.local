@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    SocioSanitario
+                    NEWS
                 </div>
 
                 <div class="links">

@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    SocioSanitario
+                    BLOG
                 </div>
 
                 <div class="links">

@@ -86,7 +86,6 @@
                     <a href="{{ url('/wwd') }}">What We do</a>
                     <a href="{{ url('/wycd') }}">What You can do</a>
                     <a href="{{ url('/news') }}">News</a>
-                    <a href="{{ url('/blog') }}">Blog</a>
                     <a href="{{ url('/help') }}">Help</a>
                 </div>
             </div>
