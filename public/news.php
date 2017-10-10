@@ -90,7 +90,7 @@
 
         <div class="content">
             <div class="title m-b-md"><a href="/">
-            NEWS</a>
+            PUBLIC NEWS</a>
         </div>
 
         <!--Card-->

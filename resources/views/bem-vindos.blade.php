@@ -83,6 +83,7 @@
                 </div>
 
                 <div class="links">
+
                     <a href="{{ url('/wwd') }}">What We do</a>
                     <a href="{{ url('/wycd') }}">What You can do</a>
                     <a href="{{ url('/news') }}">News</a>

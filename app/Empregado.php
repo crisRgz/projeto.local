@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace SocioSanitario;
 //---------------- 1 ------------------------
 
 use Illuminate\Database\Eloquent\Model;
@@ -38,7 +38,7 @@ class Empregado extends Model
 	{
 		// 1 Empregado é un user
 		// $this fai referencia ao obxecto que tenhamos nese momento de Empregado.
-		return $this->belongsTo('App\User');
+		return $this->belongsTo('SocioSanitario\User');
 	}
 
 	// Relación de Empregado con usuario:
@@ -46,7 +46,7 @@ class Empregado extends Model
 	{
 		// 1 Empregado realiza un ou varios tratamentos
 		// $this fai referencia ao obxecto que tenhamos nese momento de Empregado.
-		return $this->hasMany('App\Tratamento');
+		return $this->hasMany('SocioSanitario\Tratamento');
 	}
 
 	// Relación de Empregado con Empresa:
@@ -54,6 +54,6 @@ class Empregado extends Model
 	{
 		// 1 Empregado pode estar en 1 ou varias empresas
 		// $this fai referencia ao obxecto que tenhamos nese momento de Empregado.
-		return $this->belongsToMany('App\Empregado')->withTimestamps()->withPivot('idEmpa');
+		return $this->belongsToMany('SocioSanitario\Empregado')->withTimestamps()->withPivot('idEmpa');
 	}
 }

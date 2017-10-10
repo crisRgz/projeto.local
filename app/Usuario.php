@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace SocioSanitario;
 //---------------- N 1 ------------------------
 
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +30,7 @@ class Usuario extends Model
 	{
 		// 1 usuario é internado por un Familiar.
 		// $this hace referencia al objeto que tengamos en ese momento de USuario.
-		return $this->belongsTo('App\Familiar');
+		return $this->belongsTo('SocioSanitario\Familiar');
 	}
 
 	// Relación de Usuario con Tratamento:
@@ -38,6 +38,6 @@ class Usuario extends Model
 	{
 		// 1 usuario recibe un/varios tratamentos
 		// $this fai referencia ao obxecto que tenhamos nese momento de Usuario.
-		return $this->hasMany('App\Tratamento');
+		return $this->hasMany('SocioSanitario\Tratamento');
 	}
 }

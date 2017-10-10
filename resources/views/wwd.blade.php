@@ -60,6 +60,7 @@
     }
 
     .m-b-md {
+        margin-top: 10%;
         margin-bottom: 30px;
     }
     a{
@@ -82,30 +83,32 @@
         @endif
 
         <div class="content">
-            <h1 class="title m-b-md">
+            <div class="title m-b-md">
                 <a href="/">What We Do</a>
-            </h1>
+            </div>
 
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">TELEASISTENCIA</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Ponemos la última tecnología de teleasistencia a disposición de las personas para mejorar su calidad de vida y seguridad.</h6>
-                    <p class="card-text">Ofrecemos un servicio de carácter social, fundamentalmente preventivo, que permite una atención permanente a aquellas personas que por sus características personales, sanitarias o sociales lo necesitan.
+                    <h4 class="card-title">TELE-ASSISTANCE</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">We put the latest tele-assistance technology available to improve your quality of life and safety.</h6>
+                    <p class="card-text">
+                        We offer a social service, fundamentally preventive, that allows a permanent attention to those people who, by their personal, sanitary or social characteristics, need it.
 
-                    La teleasistencia permite mediante un dispositivo móvil o fijo, que la persona usuaria se ponga en contacto con la central de atención, que canaliza las diferentes demandas a través de un equipo de profesionales especializados, movilizando recursos -privados o públicos- en caso necesario.</p>
+                    Teleassistance allows the user, through a mobile or fixed device, to contact the service center, which channels the different demands through a team of specialized professionals, mobilizing resources - private or public - if necessary.</p>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">AYUDA A DOMICILIO</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">El Servicio de Ayuda a Domicilio ofrece una atención integral a las personas y grupos familiares que se encuentran en una situación que les impide satisfacer sus necesidades personales y sociales por sus propios medios.</h6>
-                    <p class="card-text">Con este servicio contribuimos a:
+                    <h4 class="card-title">HOME HEALTH HELP</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                    The Home Help Service provides comprehensive care to individuals and family groups who are in a situation that prevents them from meeting their personal and social needs on their own.</h6>
+                    <p class="card-text">With this service we contribute to:
                         <ol>
-                            <li>Permitir que las personas puedan permanecer en su domicilio y entorno habitual el mayor tiempo posible, mejorando su calidad de vida.</li>
-                            <li> Prevenir situaciones de deterioro personal y social.</li>
-                            <li>Promover la convivencia de la persona dentro de su entorno comunitario y su familia.</li>
-                            <li>Favorecer la adquisición de habilidades o hábitos de vida positivos, que permitan un desenvolvimiento más autónomo en la vida diaria.</li>
+                            <li> Allow people to stay in their home and usual environment for as long as possible, improving their quality of life. </li>
+                            <li> Prevent situations of personal and social deterioration. </li>
+                            <li> Promote the coexistence of the person within their community environment and their family. </li>
+                            <li> Encourage the acquisition of positive skills or life habits that allow a more autonomous development in daily life. </li>
                         </ol>
                     </p>
                 </div>
@@ -113,38 +116,39 @@
 
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">SERVICIOS SANITARIOS</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Nuestras actividades también contemplan la organización y gestión integral de servicios sanitarios, tanto en atención primaria como en especializada.</h6>
+                    <h4 class="card-title">HEALTH SERVICES</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Our activities also contemplate the organization and integral management of health services, in both primary and specialized care.</h6>
                     <p class="card-text">
-                        Éste es el caso de la gestión de centrales de esterilización en hospitales, los servicios médicos y de enfermería de atención primaria o la atención integral a enfermos crónicos.
+                        This is the case of the management of sterilization centers in hospitals, medical and nursing services of primary care or comprehensive care for chronic patients.
 
-                        Los servicios de esterilización son una parte fundamental de nuestra gestión hospitalaria y donde observamos los protocolos de seguridad y calidad más exigentes.
+                        Sterilization services are a fundamental part of our hospital management and where we observe the most demanding safety and quality protocols.
 
-                        La atención del médico de cabecera es esencial y se complementa con la atención domiciliaria, dando seguimiento a patologías crónicas y a situaciones de enfermedad aguda.
+                        The care of the primary care physician is essential and is complemented by home care, following up on chronic pathologies and situations of acute illness.
 
-                        Tratamos de mejorar la calidad de vida de los pacientes crónicos facilitándoles el control de su
-                        enfermedad, mediante un sistema de seguimiento integral en el domicilio.
+                        We try to improve the quality of life of chronic patients by facilitating the control of their
+                        disease, through a system of comprehensive monitoring at home.
 
-                        Basándonos en nuevas tecnologías y teniendo como pilar la educación para la salud, prevenimos las reagudizaciones o iniciamos su tratamiento incluso antes de la aparición de los síntomas, con el objetivo de disminuir visitas a urgencias e ingresos hospitalarios.
+                        Based on new technologies and based on health education, we prevent exacerbations or start treatment even before the onset of symptoms, in order to reduce visits to emergencies and hospital admissions.
                     </p>
                 </div>
             </div>
 
             <div class="card"><div class="card-block">
-                <h4 class="card-title">RESIDENCIALES</h4>
-                <h6 class="card-subtitle mb-2 text-muted">Servicios dispuestos en residencias.</h6>
+                <h4 class="card-title">Residential</h4>
+                <h6 class="card-subtitle mb-2 text-muted">
+                Services arranged in residences.</h6>
                 <p class="card-text">
                     <ol>
-                        <li>Unidad de Alzheimer y otras demencias</li>
-                        <li>Convalecencia y rehabilitación</li>
-                        <li>Respiro familiar</li>
-                        <li>Cuidados paliativos</li>
-                        <li>Trastornos de Conducta</li>
-                        <li>Atención gerontológica</li>
-                        <li>Discapacidad física y psíquica</li>
-                        <li>Unidad Salud Mental</li>
-                        <li>Atención diurna</li>
-                        <li>Centro de noche</li>
+                        <li> Alzheimer's and other dementias </li>
+                        <li> Convalescence and rehabilitation </li>
+                        <li> Family Respite </li>
+                        <li> Hospice care </li>
+                        <li> Behavioral Disorders </li>
+                        <li> Gerontological care </li>
+                        <li> Physical and Psychic Disability </li>
+                        <li> Mental Health Unit </li>
+                        <li> Day care </li>
+                        <li> Night Center </li>
                     </ol>
                 </p>
             </div>

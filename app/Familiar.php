@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace SocioSanitario;
 //---------------- 1 ------------------------
 
 use Illuminate\Database\Eloquent\Model;
@@ -29,7 +29,7 @@ class Familiar extends Model
 	{
 		// 1 Familiar é un user
 		// $this fai referencia ao obxecto que tenhamos nese momento de Familiar.
-		return $this->belongsTo('App\User');
+		return $this->belongsTo('SocioSanitario\User');
 	}
 
 	// Relación de Familiar con usuario:
@@ -37,6 +37,6 @@ class Familiar extends Model
 	{	
 		// 1 Familiar interna varios usuarios
 		// $this fai referencia ao obxecto que tenhamos nese momento de Familiar.
-		return $this->hasMany('App\Usuario');
+		return $this->hasMany('SocioSanitario\Usuario');
 	}
 }

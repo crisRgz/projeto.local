@@ -28,9 +28,15 @@ Route::get('/empregados', 'EmpregadoController@index'); // Listado de todos os e
 
 Route::get('/home', 'HomeController@index')->name('home'); // páxina na que entras se fizer loggin
 // Rexistrar usuarios segundo o rol, enviar cada un ao contoller correspondente
+
 Route::post('/empregado', 'EmpregadoController@create')->name('empregado');  // metodo create para gardar as novas altas n
+Route::get('/empregado/{id}', 'EmpregadoController@show');  // metodo show para listar un empregado en concreto
+Route::get('/empregado/{id}/delete','EmpregadoController@destroy'); // Metodo para eliminar usuario.
+
 Route::post('/familiar', 'FamiliarController@create')->name('familiar');	 // no controller do seu rol
+
 Route::post('/empresa', 'EmpresaController@create')->name('empresa');
+
 // Links de home
 /*
 Route::get('/wwd', 'HomeController@wwd');
@@ -38,7 +44,7 @@ Route::get('/wycd', 'HomeController@wycd');
 Route::get('/blog', 'HomeController@blog');
 Route::get('/help', 'HomeController@help');
 Route::get('/news', 'HomeController@news'); */
-
+//Better with views to mantain logged in people.
 Route::get('/wwd', function () {
     return view('wwd');
 });

@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace SocioSanitario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -28,7 +28,7 @@ class User extends Authenticatable
     {
         // 1 user pode definir 1 ou mais familiares
         // $this fai referencia ao obxecto que tenhamos nese momento de user.
-        return $this->hasMany('App\Familiar');
+        return $this->hasMany('SocioSanitario\Familiar');
     }
 
     // Relación de User con Empregado:
@@ -36,7 +36,7 @@ class User extends Authenticatable
     {
         // 1 user define a un ou máis empregados
         // $this fai referencia ao obxecto que tenhamos nese momento de user.
-        return $this->hasMany('App\Empregado');
+        return $this->hasMany('SocioSanitario\Empregado');
     }
 
      // Relación de User con Empresa:
@@ -44,6 +44,6 @@ class User extends Authenticatable
     {
         // 1 user define a un ou máis empresas
         // $this fai referencia ao obxecto que tenhamos nese momento de user.
-        return $this->hasMany('App\Empresa');
+        return $this->hasMany('SocioSanitario\Empresa');
     }
 }

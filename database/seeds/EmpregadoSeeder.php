@@ -2,6 +2,7 @@
 // usa modelo Empregado.
 use App\Empregado;
 
+
 // indicamos que utilice Faker.
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;

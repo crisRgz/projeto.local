@@ -1,6 +1,6 @@
 <?php
 // usa modelo User.
-use App\User;
+use Illuminate\Foundation\Auth\User;
 
 // indicamos que utilice Faker.
 use Faker\Factory as Faker;

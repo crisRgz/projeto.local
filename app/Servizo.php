@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace SocioSanitario;
 //---------------- 1 ------------------------
 
 use Illuminate\Database\Eloquent\Model;
@@ -28,7 +28,7 @@ class Servizo extends Model
 	{
 		// 1 Servizo dá un ou varios tratamentos
 		// $this fai referencia ao obxecto que tenhamos nese momento de Tratamento.
-		return $this->hasMany('App\Tratamento');
+		return $this->hasMany('SocioSanitario\Tratamento');
 	}
 
 	// Relación de Servizo con Empresa:
@@ -36,7 +36,7 @@ class Servizo extends Model
 	{
 		// 1 Servizo ofrecéceo unha empresa
 		// $this fai referencia ao obxecto que tenhamos nese momento de Empresa.
-		return $this->belongsToMany('App\Empresa');
+		return $this->belongsToMany('SocioSanitario\Empresa');
 	}
 
 	// Relación de servizo con tipo:
@@ -44,6 +44,6 @@ class Servizo extends Model
 	{
 		// 1 servizo só pertence a un tipo.
 		// $this fai referencia ao obxecto que tenhamos nese momento de servizo.
-		return $this->belongsTo('App\Tipo');
+		return $this->belongsTo('SocioSanitario\Tipo');
 	}
 }

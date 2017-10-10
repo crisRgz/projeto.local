@@ -60,6 +60,7 @@
     }
 
     .m-b-md {
+        margin-top: 10%;
         margin-bottom: 30px;
     }
     a{
@@ -82,43 +83,43 @@
         @endif
 
         <div class="content">
-            <h1 class="title m-b-md">
+            <div class="title m-b-md">
                 <a href="/">What You Can Do</a>
-            </h1>
+            </div>
 
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">TELEASISTENCIA</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Ll&aacute;manos.</h6>
-                    <p class="card-text">Si necesitas ayuda.</p>
+                    <h4 class="card-title">TELEASISTANCE</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Call us.</h6>
+                    <p class="card-text">Whenever help is needed.</p>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">AYUDA A DOMICILIO</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Sin salir de casa.</h6>
+                    <h4 class="card-title">HOME HEALTH HELP</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Whithout leaving home.</h6>
                     <p class="card-text">
-                        Nosotros vamos a tu casa, evaluamos la situaci&oacute;n y pondremos a tu disposici&oacute;n la ayuda necesaria.
+                        We go to your house, we evaluate the situation and we will put at your disposal the necessary help.
                     </p>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">SERVICIOS SANITARIOS</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Medicina privada</h6>
+                    <h4 class="card-title">HEALTH SERVICES</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Private medicine.</h6>
                     <p class="card-text">
-                        Estar&aacute;s siempre cubierto. Sin largas esperas. Los mejores especialistas.
+                        You will always be covered. No long waits. The best specialists.
                     </p>
                 </div>
             </div>
 
             <div class="card"><div class="card-block">
-                <h4 class="card-title">RESIDENCIALES</h4>
-                <h6 class="card-subtitle mb-2 text-muted">Atenci&oacute;n en mnuestras residencias privadas.</h6>
+                <h4 class="card-title">RESIDENTIAL</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Atencion en mnuestras residencias privadas.</h6>
                 <p class="card-text">
-                    Mientras est&eacute;s en alguna de nuesras completas residencias, tendr&aacute;s acceso a todos los servicios. Terapias, consultas, eventos. Te sentir&aacute;s como en casa, con los mejores cuidados.
+                    While you are in one of our complete residences, you will have access to all services. Therapies, consultations, events. You will feel at home, with the best care.
                 </p>
             </div>
         </div>

@@ -10,9 +10,10 @@
                 <div class="panel-body">
                 <!--
                     |
-                    | Se o id==0 => que non está na taboa do seu rol, polo que amosamos o formulario de reg
-                    |{{$id}}{{Auth::User()->rol}}
+                    | If id==0 => meaning not existing id in this role, so we show the correct form
+                    |
                 -->
+               id=  {{$id}}
                 @if($id===0)
                     <div class="panel-heading">Complete Register</div>
 
@@ -380,8 +381,14 @@
                         <div class="panel-heading">What to do</div>
                         <div class="panel-body">
                             <div class="panel-body">
-                                <button class="btn btn-primary" >See Profile</button>
-                                <button class="btn btn-primary" >Delete Profile</button>
+                                <a href="/empregado/{{$id}}">
+                                    <button class="btn btn-primary" >See Profile</button>
+                                </a>
+                                <!-- JEEEEEEEEEELP 
+                                 DELETE BUTTON-->
+                                <a href="/empregado/{{$id}}/delete">
+                                <button class="btn btn-primary" >Delete Profile</button></a>
+                                <!-- End Jelp -->
                                 <button class="btn btn-primary" >Edit Profile</button>
                             </div>
                             <div class="panel-body">

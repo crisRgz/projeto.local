@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Empregado;
+namespace SocioSanitario\Http\Controllers;
+use SocioSanitario\Empregado;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +20,8 @@ class EmpregadoController extends Controller
     public function index()
     {
         // fixen cambios. quero probar si se ven para subir a GitHub
-        $empregados = DB::table('empregados')
+        
+        $empregadoEmpresa = DB::table('empregados')
         ->join('empregado_empresa','empregado_empresa.idEmpo','=','empregados.id')
         ->select('empregados.id as idEmpo','empregados.nome as nomeEmpo','empregados.apelido1 as apelido1Empo','empregados.apelido2 as apelido2Empo','empregados.NIF as NIFEmpo','empregado_empresa.idEmpa as idEmpa','empregados.idUser as idUser')
         ->orderBy('idEmpo', 'asc')
@@ -37,7 +38,7 @@ class EmpregadoController extends Controller
     inner join empregado_empresa as ee
     on ee.idEmpo=e.id 
     */
-    return view('empregado')->with('empregados',$empregados);
+    return view('empregadosList')->with('empregados',$empregados);
     }
 
     /**
@@ -99,7 +100,7 @@ class EmpregadoController extends Controller
     {
         $empregado = Empregado::find($id);
         if (!is_null($empregado))
-            return view('empregado.mostrar', ['empregado' => $empregado->toArray()]);
+            return view('empregado', ['empregado' => $empregado]);
         else
             return response('no encontrado', 404);
     }
@@ -133,8 +134,14 @@ class EmpregadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Controlar o constraint para borrar dun lado mais de outro
     public function destroy($id)
-    {
-        //
+    { 
+        // Delete the user in USER table
+        DB::table('users')->where('id','=',Auth::User()->id )->delete();
+        // Delete the employee in the Employee table
+        DB::table('empregados')->where('id','=',$id)->delete();
+       
+        return redirect('/');
     }
 }

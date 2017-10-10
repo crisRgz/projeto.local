@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace SocioSanitario;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +23,6 @@ class Tipo extends Model
 	{	
 		// 1 tipo agrupa varios servizos
 		// $this fai referencia ao obxecto que tenhamos nese momento de tipo.
-		return $this->hasMany('App\Servizo');
+		return $this->hasMany('SocioSanitario\Servizo');
 	}
 }

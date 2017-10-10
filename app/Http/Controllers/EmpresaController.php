@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Empresa;
+namespace SocioSanitario\Http\Controllers;
+use SocioSanitario\Empresa;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

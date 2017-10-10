@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace SocioSanitario;
 //---------------- N N N ------------------------
 
 use Illuminate\Database\Eloquent\Model;
@@ -27,7 +27,7 @@ class Tratamento extends Model
 	{
 		// 1 Tratamento é recibido por un Usuario.
 		// $this hace referencia al objeto que tengamos en ese momento de Usuario.
-		return $this->belongsTo('App\Usuario');
+		return $this->belongsTo('SocioSanitario\Usuario');
 	}
 
 	// Relación de Tratamento con Empregado:
@@ -35,7 +35,7 @@ class Tratamento extends Model
 	{
 		// 1 Tratamento é realizado por un empregado.
 		// $this fai referencia ao obxecto que tenhamos nese momento de Empregado.
-		return $this->belongsTo('App\Empregado');
+		return $this->belongsTo('SocioSanitario\Empregado');
 	}
 
 	// Relación de Tratamento con Servizos:
@@ -43,6 +43,6 @@ class Tratamento extends Model
 	{
 		// 1 Tratamento dáo un servizo.
 		// $this fai referencia ao obxecto que tenhamos nese momento de Servizo.
-		return $this->belongsTo('App\Servizo');
+		return $this->belongsTo('SocioSanitario\Servizo');
 	}
 }

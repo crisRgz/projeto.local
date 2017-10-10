@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SocioSanitario\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -62,20 +62,5 @@ class HomeController extends Controller
 
         return view('home')->with('id', $id);
     }
-/*
-    public function wwd(){
-        return view('wwd');
-    }
-    public function wycd(){
-        return view('wycd');
-    }
-    public function blog(){
-        return view('blog');
-    }
-    public function news(){
-        return view('news');
-    }
-    public function help(){
-        return view('help');
-    } */
+
 }
