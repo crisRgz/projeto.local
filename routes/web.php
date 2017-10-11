@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Auth::Routes();
 
-Route::get('/empregados', 'EmpregadoController@index'); // Listado de todos os empregados co id de empresa.
+Route::get('/empregadosList', 'EmpregadoController@index'); // Listado de todos os empregados co id de empresa.
 
 Route::get('/home', 'HomeController@index')->name('home'); // páxina na que entras se fizer loggin
 // Rexistrar usuarios segundo o rol, enviar cada un ao contoller correspondente

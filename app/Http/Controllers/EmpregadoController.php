@@ -38,7 +38,7 @@ class EmpregadoController extends Controller
     inner join empregado_empresa as ee
     on ee.idEmpo=e.id 
     */
-    return view('empregadosList')->with('empregados',$empregados);
+    return view('empregadosList')->with('empregadoEmpresa',$empregadoEmpresa);
     }
 
     /**
@@ -99,8 +99,10 @@ class EmpregadoController extends Controller
     public function show($id)
     {
         $empregado = Empregado::find($id);
-        if (!is_null($empregado))
+        if (!is_null($empregado)){
+            // Buscar forma de poder buscar info en empregadoempresa para saber que emregado esta en que empresa e en empresa para facer listado de empresas.
             return view('empregado', ['empregado' => $empregado]);
+        }
         else
             return response('no encontrado', 404);
     }

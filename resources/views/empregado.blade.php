@@ -72,7 +72,7 @@
 		@if (Route::has('login'))
 		<div class="top-right links">
 			@auth
-			<a href="{{ url('/home') }}">Home</a>
+			<a href="{{ url('/home') }}" alt="Use home to go back">Home</a>
 			@else
 			<a href="{{ route('login') }}">Login</a>
 			<a href="{{ route('register') }}">Register</a>
@@ -82,19 +82,29 @@
 
 		<div class="content">
 			<div class="title m-b-md">
-				WORKER PROFILE
+				EMPLOYEE PROFILE
 			</div>
-
+			<!--
+				<?php 
+					echo Auth::User()->id;
+					echo $empregado->id;
+				?>
+			-->
 			<!-- poñer listado máis bonito e que solo se lle mostre ao propio empregado -->
-
-			<ul>
-				<li>Worker ID: {{ $empregado->id }} </li>
-				<li>User ID: {{ $empregado->idUser }} </li>
-				<li>NIF: {{ $empregado->NIF }} </li>
-				<li>NAME: {{ $empregado->nome }} {{ $empregado->apelido1 }} {{ $empregado->apelido2 }} </li>
-				<li>ADDRESS: {{ $empregado->direccion }} </li>
-				<li>PHONE NUMBER: {{ $empregado->telefono }} </li>
-			</ul>
+			@if(isset(Auth::User()->id))
+				@if ($empregado->idUser == Auth::User()->id)
+				<ul>
+					<li>Employee ID: {{ $empregado->id }} </li>
+					<li>User ID: {{ $empregado->idUser }} </li>
+					<li>NIF: {{ $empregado->NIF }} </li>
+					<li>NAME: {{ $empregado->nome }} {{ $empregado->apelido1 }} {{ $empregado->apelido2 }} </li>
+					<li>ADDRESS: {{ $empregado->direccion }} </li>
+					<li>PHONE NUMBER: {{ $empregado->telefono }} </li>
+					
+				</ul>
+				@endif
+			@endif
+			<a href="/home">Back</a>
 		</div>
 	</div>
 </body>
