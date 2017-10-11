@@ -99,12 +99,31 @@ class EmpregadoController extends Controller
     public function show($id)
     {
         $empregado = Empregado::find($id);
+        $empoEmpa = DB::select('select empresas.*
+            from empregado_empresa 
+            join empresas 
+            on empresas.id=empregado_empresa.idEmpa 
+            join empregados 
+            on empregados.id=empregado_empresa.idEmpo 
+            where empregado_empresa.idEmpo ='.$id);
+        /*$empoEmpa = DB::select('select idEmpo, idEmpa from empregado_empresa where idEmpo = '.$id);
+        */
+       $empresas = DB::select('select * from empresas');
+
         if (!is_null($empregado)){
-            // Buscar forma de poder buscar info en empregadoempresa para saber que emregado esta en que empresa e en empresa para facer listado de empresas.
-            return view('empregado', ['empregado' => $empregado]);
+            // Buscar forma de poder buscar info en empoEmpa para saber que empregado esta en que empresa e en empresa para facer listado de empresas.
+            return view('empregado', ['empregado' => $empregado, 'empoEmpa' => $empoEmpa, 'empresas' => $empresas]);
         }
         else
             return response('no encontrado', 404);
+    }
+
+    public function formulario()
+    {
+        // for dropdown select in employee profile.
+        $empresas = DB::select('select * from empresas');
+
+        return view('empregado',['empresas'=> $empresas]);
     }
 
     /**
