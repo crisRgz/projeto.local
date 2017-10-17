@@ -108,7 +108,8 @@
 						@endif
 						<?php
 			
-							$select= "<form method='post' action='/empregadoF' >";
+							$select= "<form method='post' action='/empregadoF' ><input type='hidden' name='_token' value='".csrf_token()."'>
+							<input type='text' name='idEmpo' value='".$empregado->id."'>";
 							$select.= "<select>";
 
 							for($n=0;$n<=count($empresas);$n++)

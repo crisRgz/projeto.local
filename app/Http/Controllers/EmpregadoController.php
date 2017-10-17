@@ -118,12 +118,13 @@ class EmpregadoController extends Controller
             return response('no encontrado', 404);
     }
 
-    public function formulario()
+    public function formulario($idEmpo)
     {
         // for dropdown select in employee profile.
         $empresas = DB::select('select * from empresas');
+        $empregado = Empregado::find($idEmpo);
+        return view('empregado',compact(empregado));
 
-        return view('empregado',['empresas'=> $empresas]);
     }
 
     /**
@@ -148,7 +149,7 @@ class EmpregadoController extends Controller
     {
         //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
