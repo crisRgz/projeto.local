@@ -94,9 +94,9 @@
 					<li>NAME: {{ $empregado->nome }} {{ $empregado->apelido1 }} {{ $empregado->apelido2 }} </li>
 					<li>ADDRESS: {{ $empregado->direccion }} </li>
 					<li>PHONE NUMBER: {{ $empregado->telefono }} </li>
-					<li>COMPANY: 
-						@if($empoEmpa[0]->id)
-							{{$empoEmpa[0]->nome}}
+					<li>COMPANY:
+						@if($empoEmpa)
+							{{$empoEmpa->nome}}
 						@endif
 						<form method="POST" action="/empregadoF/{{ $empregado->id }}">
 
