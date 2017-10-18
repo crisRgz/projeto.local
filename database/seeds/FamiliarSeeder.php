@@ -1,6 +1,6 @@
 <?php
 // usa modelo Familiar.
-use App\Familiar;
+use SocioSanitario\Familiar;
 
 // indicamos que utilice Faker.
 use Faker\Factory as Faker;
@@ -22,7 +22,7 @@ class FamiliarSeeder extends Seeder
 		// Creamos un bucle para cubrir 5 relacions:
 		for ($i=0; $i<5; $i++)
 		{
-			// Cuando llamamos al método create del Modelo Familiar 
+			// Cuando llamamos al método create del Modelo Familiar
 			// se está creando una nueva fila en la tabla.
 			Familiar::create(
 				[

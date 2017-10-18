@@ -1,6 +1,6 @@
 <?php
 // usa modelo Usuario.
-use App\Usuario;
+use SocioSanitario\Usuario;
 
 // indicamos que utilice Faker.
 use Faker\Factory as Faker;

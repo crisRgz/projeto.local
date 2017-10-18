@@ -1,6 +1,6 @@
 <?php
 // usa modelo Servizo.
-use App\Servizo;
+use SocioSanitario\Servizo;
 
 // indicamos que utilice Faker.
 use Faker\Factory as Faker;
