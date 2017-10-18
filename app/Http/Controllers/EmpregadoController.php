@@ -117,13 +117,13 @@ class EmpregadoController extends Controller
             return response('no encontrado', 404);
     }
 
-    public function formulario($idEmpo)
+    public function formulario(Empregado $empregado)
     {
-        // for dropdown select in employee profile.
-        $empresas = DB::select('select * from empresas');
-        $empregado = Empregado::find($idEmpo);
-        return view('empregado',compact(empregado));
+        // You actually are doing nothing with the form data here; what was intended, to update the Empregado?
 
+        $empresas = Empresa::all();
+        $empoEmpa = null; // This variable is expected in the view, but you were not setting it here???
+        return view('empregado', compact('empregado', 'empoEmpa', 'empresas'));
     }
 
     /**
