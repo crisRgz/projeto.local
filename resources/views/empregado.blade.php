@@ -86,7 +86,7 @@
 			</div>
 			<!-- poñer listado máis bonito e que solo se lle mostre ao propio empregado -->
 			@if(auth()->check())
-				@if ($empregado->idUser == auth()->id())
+ 				@if ($empregado->idUser == auth()->id())
 				<ul>
 					<li>Employee ID: {{ $empregado->id }} </li>
 					<li>User ID: {{ $empregado->idUser }} </li>
@@ -94,6 +94,7 @@
 					<li>NAME: {{ $empregado->nome }} {{ $empregado->apelido1 }} {{ $empregado->apelido2 }} </li>
 					<li>ADDRESS: {{ $empregado->direccion }} </li>
 					<li>PHONE NUMBER: {{ $empregado->telefono }} </li>
+<<<<<<< Updated upstream
 					<li>COMPANY:
 						@if($empoEmpa)
 							{{$empoEmpa->nome}}
@@ -114,6 +115,7 @@
 
 							<input type='submit' value='Update'>";
 						</form>
+
 					</li>
 				</ul>
 				<!---->
