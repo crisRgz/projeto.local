@@ -96,9 +96,8 @@ class EmpregadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Empregado $empregado)
     {
-        $empregado = Empregado::find($id);
         $empoEmpa = DB::select('select empresas.*
             from empregado_empresa 
             join empresas 
