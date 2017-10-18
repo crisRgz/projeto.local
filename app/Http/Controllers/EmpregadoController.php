@@ -109,12 +109,6 @@ class EmpregadoController extends Controller
         */
        $empresas = DB::select('select * from empresas');
 
-        if (!is_null($empregado)){
-            // Buscar forma de poder buscar info en empoEmpa para saber que empregado esta en que empresa e en empresa para facer listado de empresas.
-            return view('empregado', ['empregado' => $empregado, 'empoEmpa' => $empoEmpa, 'empresas' => $empresas]);
-        }
-        else
-            return response('no encontrado', 404);
     }
 
     public function formulario(Empregado $empregado)
