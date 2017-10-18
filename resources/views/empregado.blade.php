@@ -98,30 +98,22 @@
 						@if($empoEmpa[0]->id)
 							{{$empoEmpa[0]->nome}}
 						@endif
-						<?php
-			
-							$select= "<form method='post' action='/empregadoF' ><input type='hidden' name='_token' value='".csrf_token()."'>
-							<input type='text' name='idEmpo' value='".$empregado->id."'>";
-							$select.= "<select>";
+						<form method="POST" action="/empregadoF/{{ $empregado->id }}">
 
-							for($n=0;$n<=count($empresas);$n++)
-								{	
-									if(isset($empresas[$n]))
-									{
-										/*	echo $empresas[$n]->nome;*/
-										$select.= "<option value='";
-										$select.= $empresas[$n]->id;
-										$select.="'>";
-										$select.=$empresas[$n]->nome;
-										$select.="</option>";
-									}
-								}
-							
-							$select.= "</select>";
-							$select.= "<input type='submit' value='Update'>";
-							$select.= "</form>";
-							echo $select;
-						?>
+							{{ csrf_field() }}
+
+							<input type='text' name='idEmpo' value="{{ $empregado->id }}">
+
+							<select name="empresas_id">
+								@foreach ($empresas as $empresa)
+									<option value="{{ $empresa->id }}">
+										{{ $empresa->nome }}
+									</option>
+								@endforeach
+							</select>
+
+							<input type='submit' value='Update'>";
+						</form>
 					</li>
 				</ul>
 				<!---->
