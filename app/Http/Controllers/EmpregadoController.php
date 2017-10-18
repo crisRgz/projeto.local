@@ -1,14 +1,15 @@
 <?php
 
 namespace SocioSanitario\Http\Controllers;
-use SocioSanitario\Empregado;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 use View;
 use Redirect;
+use Carbon\Carbon;
+use SocioSanitario\Empresa;
+use Illuminate\Http\Request;
+use SocioSanitario\Empregado;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EmpregadoController extends Controller
 {
@@ -96,35 +97,33 @@ class EmpregadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Empregado $empregado)
     {
-        $empregado = Empregado::find($id);
         $empoEmpa = DB::select('select empresas.*
-            from empregado_empresa 
-            join empresas 
-            on empresas.id=empregado_empresa.idEmpa 
-            join empregados 
-            on empregados.id=empregado_empresa.idEmpo 
-            where empregado_empresa.idEmpo ='.$id);
+            from empregado_empresa
+            join empresas
+            on empresas.id=empregado_empresa.idEmpa
+            join empregados
+            on empregados.id=empregado_empresa.idEmpo
+            where empregado_empresa.idEmpo ='.$empregado->id
+        );
         /*$empoEmpa = DB::select('select idEmpo, idEmpa from empregado_empresa where idEmpo = '.$id);
         */
-       $empresas = DB::select('select * from empresas');
+       // What is $empoEmpa? Setting it to null temporarily to stop the view breaking...
+       $empoEmpa = null; // DELETE ME
 
-        if (!is_null($empregado)){
-            // Buscar forma de poder buscar info en empoEmpa para saber que empregado esta en que empresa e en empresa para facer listado de empresas.
-            return view('empregado', ['empregado' => $empregado, 'empoEmpa' => $empoEmpa, 'empresas' => $empresas]);
-        }
-        else
-            return response('no encontrado', 404);
+        $empresas = Empresa::all();
+
+        return view('empregado', compact('empregado', 'empoEmpa', 'empresas'));
     }
 
-    public function formulario($idEmpo)
+    public function formulario(Empregado $empregado)
     {
-        // for dropdown select in employee profile.
-        $empresas = DB::select('select * from empresas');
-        $empregado = Empregado::find($idEmpo);
-        return view('empregado',compact(empregado));
+        // You actually are doing nothing with the form data here; what was intended, to update the Empregado?
 
+        $empresas = Empresa::all();
+        $empoEmpa = null; // This variable is expected in the view, but you were not setting it here???
+        return view('empregado', compact('empregado', 'empoEmpa', 'empresas'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 // usa modelo Empregado.
-use App\Empregado;
+use SocioSanitario\Empregado;
 
 
 // indicamos que utilice Faker.
@@ -23,9 +23,9 @@ class EmpregadoSeeder extends Seeder
 		// Creamos un bucle para cubrir 5 relacions:
 		for ($i=0; $i<5; $i++)
 		{
-			// Cuando llamamos al método create del Modelo Empregado 
+			// Cuando llamamos al método create del Modelo Empregado
 			// se está creando una nueva fila en la tabla.
-			Empregado::create(	
+			Empregado::create(
 				[
 					'NIF'=>$faker->regexify('[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]{1}'),
 					'nome'=>$faker->firstName($gender = 'male'|'female'),
