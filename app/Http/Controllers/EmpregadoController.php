@@ -1,14 +1,15 @@
 <?php
 
 namespace SocioSanitario\Http\Controllers;
-use SocioSanitario\Empregado;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 use View;
 use Redirect;
+use Carbon\Carbon;
+use SocioSanitario\Empresa;
+use Illuminate\Http\Request;
+use SocioSanitario\Empregado;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EmpregadoController extends Controller
 {
@@ -99,16 +100,21 @@ class EmpregadoController extends Controller
     public function show(Empregado $empregado)
     {
         $empoEmpa = DB::select('select empresas.*
-            from empregado_empresa 
-            join empresas 
-            on empresas.id=empregado_empresa.idEmpa 
-            join empregados 
-            on empregados.id=empregado_empresa.idEmpo 
-            where empregado_empresa.idEmpo ='.$id);
+            from empregado_empresa
+            join empresas
+            on empresas.id=empregado_empresa.idEmpa
+            join empregados
+            on empregados.id=empregado_empresa.idEmpo
+            where empregado_empresa.idEmpo ='.$empregado->id
+        );
         /*$empoEmpa = DB::select('select idEmpo, idEmpa from empregado_empresa where idEmpo = '.$id);
         */
-       $empresas = DB::select('select * from empresas');
+       // What is $empoEmpa? Setting it to null temporarily to stop the view breaking...
+       $empoEmpa = null; // DELETE ME
 
+        $empresas = Empresa::all();
+
+        return view('empregado', compact('empregado', 'empoEmpa', 'empresas'));
     }
 
     public function formulario(Empregado $empregado)
