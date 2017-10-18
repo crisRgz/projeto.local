@@ -84,17 +84,9 @@
 			<div class="title m-b-md">
 				EMPLOYEE PROFILE
 			</div>
-			<!---->
-				<?php 
-					echo Auth::User()->id;
-					echo $empregado->id;
-					print_r($empoEmpa);
-					//echo $empoEmpa[0]->id;
-				?>
-			
 			<!-- poñer listado máis bonito e que solo se lle mostre ao propio empregado -->
-			@if(isset(Auth::User()->id))
-				@if ($empregado->idUser == Auth::User()->id)
+			@if(auth()->check())
+				@if ($empregado->idUser == auth()->id())
 				<ul>
 					<li>Employee ID: {{ $empregado->id }} </li>
 					<li>User ID: {{ $empregado->idUser }} </li>
