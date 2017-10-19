@@ -50,7 +50,7 @@ class Empregado extends Model
 	}
 	public function getEmpresaAttribute()
 	{
-	    return $this->empresas()->latest()->first();
+        return $this->empresas()->orderBy('empregado_empresa.created_at', 'desc')->first();
 	}
 	public function empresas()
 	{

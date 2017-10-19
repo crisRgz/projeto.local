@@ -110,7 +110,7 @@ class EmpregadoController extends Controller
         /*$empoEmpa = DB::select('select idEmpo, idEmpa from empregado_empresa where idEmpo = '.$id);
         */
        // What is $empoEmpa? Setting it to null temporarily to stop the view breaking...
-       $empoEmpa = null; // DELETE ME
+       $empoEmpa = $empregado->empresa;
 
         $empresas = Empresa::all();
 
@@ -120,7 +120,7 @@ class EmpregadoController extends Controller
     public function formulario(Empregado $empregado)
     {
         // intended to update the Empregado->empresa value.
-        $empregado->empresas()->attach(request()->company_id);
+        $empregado->empresas()->attach(request()->empresas_id);
 
         $empresas = Empresa::all();
         $empoEmpa = $empregado->empresa; // This variable is expected in the view, but you were not setting it here???
