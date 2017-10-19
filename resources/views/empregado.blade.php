@@ -45,11 +45,11 @@
 							<input type='submit' value='Update'>
 						</form>
 						 @if ($errors->any())
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         @endif
 					</fieldset></li>
 				</ul>
