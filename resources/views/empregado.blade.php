@@ -94,16 +94,15 @@
 					<li>NAME: {{ $empregado->nome }} {{ $empregado->apelido1 }} {{ $empregado->apelido2 }} </li>
 					<li>ADDRESS: {{ $empregado->direccion }} </li>
 					<li>PHONE NUMBER: {{ $empregado->telefono }} </li>
-<<<<<<< Updated upstream
 					<li>COMPANY:
 						@if($empoEmpa)
-							{{$empoEmpa->nome}}
+							{{$empoEmpa}}
 						@endif
 						<form method="POST" action="/empregadoF/{{ $empregado->id }}">
 
 							{{ csrf_field() }}
 
-							<input type='text' name='idEmpo' value="{{ $empregado->id }}">
+							<label>idEmployee:</label>{{ $empregado->id }}
 
 							<select name="empresas_id">
 								@foreach ($empresas as $empresa)
@@ -113,7 +112,7 @@
 								@endforeach
 							</select>
 
-							<input type='submit' value='Update'>";
+							<input type='submit' value='Update'>
 						</form>
 
 					</li>

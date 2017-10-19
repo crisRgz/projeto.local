@@ -119,10 +119,11 @@ class EmpregadoController extends Controller
 
     public function formulario(Empregado $empregado)
     {
-        // You actually are doing nothing with the form data here; what was intended, to update the Empregado?
+        // intended to update the Empregado->empresa value.
+        $empregado->empresas()->attach(request()->company_id);
 
         $empresas = Empresa::all();
-        $empoEmpa = null; // This variable is expected in the view, but you were not setting it here???
+        $empoEmpa = $empregado->empresa; // This variable is expected in the view, but you were not setting it here???
         return view('empregado', compact('empregado', 'empoEmpa', 'empresas'));
     }
 

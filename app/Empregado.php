@@ -48,12 +48,19 @@ class Empregado extends Model
 		// $this fai referencia ao obxecto que tenhamos nese momento de Empregado.
 		return $this->hasMany('SocioSanitario\Tratamento');
 	}
-
+	public function getEmpresaAttribute()
+	{
+	    return $this->empresas()->latest()->first();
+	}
+	public function empresas()
+	{
+        return $this->belongsToMany('SocioSanitario\Empresa', 'empregado_empresa', 'idEmpo', 'idEmpa')->withTimestamps();
+	}
 	// Relación de Empregado con Empresa:
-	public function empresa()
+	/*public function empresa()
 	{
 		// 1 Empregado pode estar en 1 ou varias empresas
 		// $this fai referencia ao obxecto que tenhamos nese momento de Empregado.
 		return $this->belongsToMany('SocioSanitario\Empregado')->withTimestamps()->withPivot('idEmpa');
-	}
+	}*/
 }
