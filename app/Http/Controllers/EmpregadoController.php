@@ -109,8 +109,8 @@ class EmpregadoController extends Controller
         );
         /*$empoEmpa = DB::select('select idEmpo, idEmpa from empregado_empresa where idEmpo = '.$id);
         */
-       // What is $empoEmpa? Setting it to null temporarily to stop the view breaking...
-       $empoEmpa = $empregado->empresa;
+        // What is $empoEmpa? Setting it to null temporarily to stop the view breaking...
+        $empoEmpa = $empregado->empresa;
 
         $empresas = Empresa::all();
 
@@ -119,13 +119,23 @@ class EmpregadoController extends Controller
 
     public function formulario(Empregado $empregado)
     {
+        //validate that the `request()->empresas_id` is not empty in the `formulario()` method, otherwise, if the form is submitted with that first value, will get a PDOException for passing `null` into the pivot table
+        $this->validate(request(), [
+            'empresas_id' => 'required'
+        ]);
+        $empregado->empresas()->attach(request()->empresas_id);
+        return back();
+    }
+
+    /*public function formulario(Empregado $empregado)
+    {
         // intended to update the Empregado->empresa value.
         $empregado->empresas()->attach(request()->empresas_id);
 
         $empresas = Empresa::all();
         $empoEmpa = $empregado->empresa; // This variable is expected in the view, but you were not setting it here???
         return view('empregado', compact('empregado', 'empoEmpa', 'empresas'));
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.

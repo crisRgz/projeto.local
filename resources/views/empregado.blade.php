@@ -8,8 +8,8 @@
 				<div class="panel-heading">EMPLOYEE PROFILE</div>
 
 				<div class="panel-body">
-					
-				
+
+
 				<!-- poñer listado máis bonito e que solo se lle mostre ao propio empregado -->
 				@if(auth()->check())
 				@if ($empregado->idUser == auth()->id())
@@ -22,16 +22,21 @@
 					<li>PHONE NUMBER: {{ $empregado->telefono }} </li>
 					<li><fieldset>
 						COMPANY:
+						<!--
 						@if($empoEmpa)
 						{{$empoEmpa->nome}} {{-- use only the `nome` property here --}}
 						@endif
+						-->
+
 						<form method="POST" action="/empregadoF/{{ $empregado->id }}">
 
 							{{ csrf_field() }}
 
 							<select name="empresas_id">
+								<option value="">Select a company</option>
 								@foreach ($empresas as $empresa)
-								<option value="{{ $empresa->id }}">
+								    <option value="{{ $empresa->id }}" {{ $empoEmpa->id == $empresa->id ? 'selected' : '' }}>
+								
 									{{ $empresa->nome }}
 								</option>
 								@endforeach
@@ -39,6 +44,13 @@
 
 							<input type='submit' value='Update'>
 						</form>
+						 @if ($errors->any())
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                        @endif
 					</fieldset></li>
 				</ul>
 				<!---->
