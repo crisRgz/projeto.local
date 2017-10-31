@@ -28,7 +28,7 @@
 						@endif
 						-->
 
-						<form method="POST" action="/empregadoF/{{ $empregado->id }}">
+						<form method="POST" action="/empregado/{{ $empregado->id }}">
 
 							{{ csrf_field() }}
 
