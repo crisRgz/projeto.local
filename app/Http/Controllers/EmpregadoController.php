@@ -120,6 +120,7 @@ class EmpregadoController extends Controller
     public function formulario(Empregado $empregado)
     {
         //validate that the `request()->empresas_id` is not empty in the `formulario()` method, otherwise, if the form is submitted with that first value, will get a PDOException for passing `null` into the pivot table
+        
         $this->validate(request(), [
             'empresas_id' => 'required'
         ], [
