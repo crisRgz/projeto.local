@@ -33,6 +33,7 @@ Route::post('/empregado', 'EmpregadoController@create')->name('empregado');  // 
 Route::get('/empregado/{empregado}', 'EmpregadoController@show');  // metodo show para listar un empregado en concreto
 Route::delete('/empregado/{id}/delete', 'EmpregadoController@destroy'); // Metodo para eliminar usuario.
 Route::post('/empregado/{empregado}', 'EmpregadoController@formulario'); // EDIT FORM
+Route::get('/empregado/{id}/treatments','EmpregadoController@listTreatments'); // List of the treatments by employee id
 
 Route::post('/familiar', 'FamiliarController@create')->name('familiar');	 // no controller do seu rol
 
