@@ -376,29 +376,29 @@
                 -->
                 @if($id!=0)
                     <h3>Wel Come {{ Auth::User()->rol }}s, <strong><em>{{ Auth::User()->name }}</em></strong></h3>
-
+<!-- EMPLOYEES  -->
                     @if(Auth::User()->rol == 'Empregado')
                         <div class="panel-heading">What to do</div>
                         <div class="panel-body">
                             <div class="panel-body">
                                 <a href="/empregado/{{$id}}">
-                                    <button class="btn btn-primary" >See Profile</button>
+                                 <button class="btn btn-primary" >SEE/EDIT Profile</button>
                                 </a>
-                                <!-- JEEEEEEEEEELP 
-                                 DELETE BUTTON-->
                                 <a href="/empregado/{{$id}}/delete">
                                 <button class="btn btn-primary" >Delete Profile</button></a>
-                                <!-- End Jelp -->
-                                <button class="btn btn-primary" >Edit Profile</button>
+                               
                             </div>
                             <div class="panel-body">
-                                <button class="btn btn-primary" >List All Your Treatments</button>
-                                <button class="btn btn-primary" >List Treatments by User</button>
-                                <button class="btn btn-primary" >List Users</button>
+                                <a href="/empregado/{{$id}}/treatments">
+                                <button class="btn btn-primary" >List All Your Treatments</button></a>
+                                <a href="/empregado/{{$id}}/treatments/{{$userId}}">
+                                <button class="btn btn-primary" >List Treatments by User</button></a>
+                                <a href="/empregado/{{$id}}/usuarios">
+                                <button class="btn btn-primary" >List Users</button></a>
                             </div>
                         </div>
                     @endif
-
+<!-- RELATIVES  -->
                     @if(Auth::User()->rol == 'Familiar')
                         <div class="panel-heading">What to do</div>
                         <div class="panel-body">
@@ -419,7 +419,7 @@
                             </div>
                         </div>
                     @endif
-
+<!-- COMPANIES  -->
                     @if(Auth::User()->rol == 'Empresa')
                         <div class="panel-heading">What to do</div>
                         <div class="panel-body"> 
