@@ -3,6 +3,7 @@
 namespace SocioSanitario\Http\Controllers;
 
 use Illuminate\Http\Request;
+use SocioSanitario\Employee;
 
 class TreatmentController extends Controller
 {
@@ -11,9 +12,10 @@ class TreatmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index($employeeId)
+    {   
+        $employee = Employee::find($employeeId);
+        return view('treatments_list', compact('employee'));  
     }
 
     /**
@@ -83,7 +85,7 @@ class TreatmentController extends Controller
     public function edit($id)
     {
         $treatment = Treatment::find($id); // builder instance
-        return view('treatment_show', compact('treatment'))
+        return view('treatment_show', compact('treatment'));
     }
 
     /**

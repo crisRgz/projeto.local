@@ -24,21 +24,21 @@ class Treatment extends Model
 	protected $hidden = ['created_at','updated_at'];
 
 	// RTreatments - patients
-	public function patients()
+	public function patient()
 	{
 		// 1 Treatmnet 1 Patient.
-		return $this->belongsTo('SocioSanitario\Patient', 'idPat');
+		return $this->belongsTo('SocioSanitario\Patient', 'idFam');
 	}
 
 	// Treatments - Employees
-	public function employees()
+	public function employee()
 	{
 		// 1 Treatment 1 Employee
 		return $this->belongsTo('SocioSanitario\Employee','idEmp');
 	}
 
 	// Relación de Tratamento con Servizos:
-	public function services()
+	public function service()
 	{
 		// 1 Treatment 1 service.
 		return $this->belongsTo('SocioSanitario\Service');

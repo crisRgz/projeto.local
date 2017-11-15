@@ -34,7 +34,7 @@ Route::get('/employee/{id}', 'EmployeeController@show');  // list 1 employee
 Route::get('/employee/{id}/edit', 'EmployeeController@edit');// edit 1 employee
 Route::post('/employee/{id}/edit', 'EmployeeController@update');// edit 1 employee
 Route::get('/employee/{id}/delete', 'EmployeeController@destroy'); //delete 1 employee
-Route::get('/employee/{id}/treatments', 'EmployeeController@treatments');  // list all treatments for this employee
+Route::get('/employee/{id}/treatments', 'TreatmentController@index');  // list all treatments for this employee
 
 /*
  */

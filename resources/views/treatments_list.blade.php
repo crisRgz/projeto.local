@@ -6,15 +6,17 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 			<div class="panel-heading">TREATMENTS</div>
-			    employee->iduser: {{$employee->idUser}} <br>
+			    employee->id: {{$employee->id}} <br>
 			    auth()->id(): {{auth()->id()}} <br>
-			    {{$empoTreat}}
-		        @foreach($employee->treatments as $tratamento)
+			   
+		        @foreach($employee->treatments()->get() as $treatment)
 		        <div class="panel-body">
-		            ID: {{$tratamento->id}}</br>
-		            USUARIO NAME: {{$tratamento->patient->name}}</br>
-		            ADDRESS: {{$tratamento->patient->address}}</br>
-		            PHONE: {{$tratamento->patient->phone}}</br>
+		            ID: {{$treatment->id}}</br>
+					
+					{{$patient = $treatment->patient()->get()}}
+					USUARIO NAME: {{$patient->name}}</br>
+		            ADDRESS: {{$patient->address}}</br>
+		            PHONE: {{$patient->phone}}</br>
 		        </div>
 		        @endforeach
 			</div>

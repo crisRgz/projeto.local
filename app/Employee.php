@@ -50,12 +50,4 @@ class Employee extends Model
 	{
 	    return $this->belongsToMany(Patient::class, 'treatments', 'idPat');
 	}
-
-	// Relación de Empregado con Empresa:
-	/*public function empresa()
-	{
-		// 1 Empregado pode estar en 1 ou varias empresas
-		// $this fai referencia ao obxecto que tenhamos nese momento de Empregado.
-		return $this->belongsToMany('SocioSanitario\Empregado')->withTimestamps()->withPivot('idEmpa');
-	}*/
 }

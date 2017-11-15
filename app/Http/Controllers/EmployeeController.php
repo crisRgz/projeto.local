@@ -129,14 +129,7 @@ class EmployeeController extends Controller
 
         return view('employee_show', compact('employee'));
     }
-    /*
-    List of all treatments in course by Employee id
-     */
-    public function treatments(Employee $employee)
-    {
-        $empoTreat = Treatment::where('idEmp', $employee->id)->with('patient')->get();
-        return view('treatments_list', compact('employee', 'empoTreat'));  
-    }
+
     
     /**
      * Remove the specified resource from storage.
