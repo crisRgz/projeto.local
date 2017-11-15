@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TiposMigration extends Migration
+class TypesMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class TiposMigration extends Migration
      */
     public function up()
     {
-        Schema::create('tipos', function (Blueprint $table) {
+        Schema::disableForeignKeyConstraints();
+        Schema::create('types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class TiposMigration extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('tipos');
+        Schema::dropIfExists('types');
     }
 }

@@ -19,27 +19,27 @@
 */
 
 Route::get('/', function () {
-    return view('bem-vindos'); // Páxina INDEX meter links, crear seccións centrais, e/ou áncoras para ler n1 sóa páxina
+    return view('bem-vindos'); // INDEX 
 });
 
 Auth::Routes();
 
-Route::get('/empregadosList', 'EmpregadoController@index'); // Listado de todos os empregados co id de empresa.
+Route::get('/employees_List', 'EmployeeController@index'); // List all employees 
 
-Route::get('/home', 'HomeController@index')->name('home'); // páxina na que entras se fizer loggin
-// Rexistrar usuarios segundo o rol, enviar cada un ao contoller correspondente
+Route::get('/home', 'HomeController@index')->name('home'); // after login
+// Register users by rol, send them to contoller
 
-Route::post('/empregado', 'EmpregadoController@create')->name('empregado');  // metodo create para gardar as novas altas n
-Route::get('/empregado/{empregado}', 'EmpregadoController@show');  // metodo show para listar un empregado en concreto
-Route::delete('/empregado/{id}/delete', 'EmpregadoController@destroy'); // Metodo para eliminar usuario.
-Route::post('/empregado/{empregado}', 'EmpregadoController@formulario'); // EDIT FORM
-Route::get('/empregado/{id}/treatments','EmpregadoController@listTreatments'); // List of the treatments by employee id
+Route::post('/employee', 'EmployeeController@create')->name('employee');  // create new employee
+Route::get('/employee/{id}', 'EmployeeController@show');  // list 1 employee
+Route::get('/employee/{id}/edit', 'EmployeeController@edit');// edit 1 employee
+Route::delete('/employee/{id}/delete', 'EmployeeController@destroy'); //delete 1 employee
 
-Route::post('/familiar', 'FamiliarController@create')->name('familiar');	 // no controller do seu rol
+/*
+ */
+Route::post('/patient', 'PatientController@create')->name('patient');	 //create 1 patient
 
-Route::post('/empresa', 'EmpresaController@create')->name('empresa');
 
-// Links de home
+// Links in home
 /*
 Route::get('/wwd', 'HomeController@wwd');
 Route::get('/wycd', 'HomeController@wycd');

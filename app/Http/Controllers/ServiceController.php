@@ -1,16 +1,16 @@
 <?php
 
 namespace SocioSanitario\Http\Controllers;
-use SocioSanitario\Familiar;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 use View;
 use Redirect;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use SocioSanitario\Treatment;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
-class FamiliarController extends Controller
+class ServizoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,26 +27,20 @@ class FamiliarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        //Creamos un obxecto que conten os campos da taboa que queremos almacenar
-        $registro= new Familiar;
+         //Create an object with all the fields for the DB
+        $registro= new Service;
 
-        //Realizamos a inserion ea taboa cos datos proporcionados polo obxecto Request
-        $registro->NIF = $request['NIF'];
-        $registro->nome= $request['name'];
-        $registro->apelido1= $request['apelido1'];
-        $registro->apelido2= $request['apelido2'];
-        $registro->direccion= $request['direccion'];
-        $registro->telefono= $request['telefono'];
-        $registro->CCC= $request['CCC'];
-        $registro->idUser= Auth::user()->id;
+        // Insert on table with request data
+        $registro->name = $request['name'];
+        $registro->description = $request['description'];
+        $registro->idType = $request['idType'];
 
-        //Gardamos
+        //Save
         $registro->save();
 
-        // Mandamos a vista
-        //return view('home')->with('id',$id=true);
+        // Redirect to HOME
         return redirect('/home');
     }
 
@@ -58,7 +52,14 @@ class FamiliarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'=> 'required|min:5',
+            'description'=>'required',
+            'idType'=>'required'
+            ]);
+
+        Service::create($request->all());
+        return redirect('/services');
     }
 
     /**
@@ -69,7 +70,8 @@ class FamiliarController extends Controller
      */
     public function show($id)
     {
-        //
+        $service = Service::find($id); // builder instance
+        return view('service_show', compact('service'));
     }
 
     /**
@@ -80,7 +82,8 @@ class FamiliarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::find($id); // builder instance
+        return view('service_edit', compact('service'));
     }
 
     /**
@@ -103,6 +106,9 @@ class FamiliarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Delete the Service in the Services table
+        DB::table('services')->where('id','=',$id)->delete();
+       
+        return redirect('/');
     }
 }

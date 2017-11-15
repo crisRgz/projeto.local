@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FamiliaresMigration extends Migration
+class PatientsMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,21 @@ class FamiliaresMigration extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('familiares', function (Blueprint $table) {
-            $table->increments('id'); // id da táboa familiares
+        Schema::create('patients', function (Blueprint $table) {
+            $table->increments('id'); // id da táboa usuarios
             $table->string('NIF');
-            $table->string('nome');
-            $table->string('apelido1');
-            $table->string('apelido2');
-            $table->string('direccion');
-            $table->string('telefono');
-            $table->string('CCC');
-
+            $table->string('name');
+            $table->string('lastName1');
+            $table->string('lastName2');
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('contactName')->nullable();
+            $table->string('contactPhone')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
             // Foreign Keys
             $table->integer('idUser')->unsigned();
+
             // Indicamos cal e a chave foránea desta taboa:
             $table->foreign('idUser')->references('id')->on('users');
 
@@ -41,6 +44,6 @@ class FamiliaresMigration extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('familiares');
+        Schema::dropIfExists('patients');
     }
 }

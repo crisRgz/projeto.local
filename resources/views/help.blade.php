@@ -84,9 +84,9 @@
 
                 <div class="links">
                     <ol>
-                        <li>Register, Login, Logout as Company, Employee, Relative.</li>
+                        <li>Register, Login, Logout as Employee, Patient.</li>
                         <li>Static web pages, WWD, WYCD, NEWS, HELP.</li>
-                        <li>News</li>
+                        <li>List employees. List treatments.</li>
                         <li>Help</li>
                     </ol>
                 </div>

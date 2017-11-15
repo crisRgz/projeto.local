@@ -5,8 +5,6 @@
 	<title>Todos os empregados</title>
 </head>
 <body>
-<!-- poñer lsitado máis bonito e que solo se lle mostre ao admin, ou á propia empresa dona dos empregados 
--->
 
 	@foreach ($empregadoEmpresa as $empoEmpa)
 	<a href="/empregado/{{ $empoEmpa->idEmpo }}">

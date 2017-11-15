@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EmpregadosMigration extends Migration
+class ServicesMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +14,17 @@ class EmpregadosMigration extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('empregados', function (Blueprint $table) {
-            $table->increments('id'); // id da táboa empregados
-            $table->string('NIF');
-            $table->string('nome');
-            $table->string('apelido1');
-            $table->string('apelido2');
-            $table->string('direccion');
-            $table->string('telefono');
+        Schema::create('services', function (Blueprint $table) {
+            $table->increments('id');
+
+            $table->string('name');
+            $table->string('description')->nullable();
 
             // Foreign Keys
-            $table->integer('idUser')->unsigned();
+            $table->integer('idType')->unsigned();
             // Indicamos cal e a chave foránea desta taboa:
-            $table->foreign('idUser')->references('id')->on('users');
+            $table->foreign('idType')->references('id')->on('types');
+
             $table->timestamps();
         });
     }
@@ -39,6 +37,6 @@ class EmpregadosMigration extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('empregados');
+        Schema::dropIfExists('services');
     }
 }

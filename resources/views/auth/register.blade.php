@@ -64,13 +64,10 @@
                             <label for="familiar" class="col-md-4 control-label">I'm a:</label>
 
                             <div class="col-md-2">
-                                <input type="radio" id="rol" name="rol" value="Empregado">Employee
+                                <input type="radio" id="rol" name="rol" value="Employee">Employee
                             </div>
                             <div class="col-md-2">
-                                <input type="radio" id="rol" name="rol" value="Familiar">Relative
-                            </div>
-                            <div class="col-md-2">
-                                <input type="radio" id="rol" name="rol" value="Empresa">Company
+                                <input type="radio" id="rol" name="rol" value="Patient">Patient
                             </div>
                         </div>
 

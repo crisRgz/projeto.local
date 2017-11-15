@@ -20,12 +20,12 @@
                     <div class="panel-body">
                     <!--
                     |
-                    | Se o rol é Empregado, completar formulario Empregado
+                    | if employee, complete form
                     |
                     -->
-                    @if(Auth::User()->rol == 'Empregado')
+                    @if(Auth::User()->rol == 'Employee')
                     <h6>You are an Employee</h6>
-                        <form class="form-horizontal" method="POST" action="{{ route('empregado') }}">
+                        <form class="form-horizontal" method="POST" action="{{ route('employee') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('NIF') ? ' has-error' : '' }}">
@@ -56,57 +56,57 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('apelido1') ? ' has-error' : '' }}">
-                                <label for="apelido1" class="col-md-4 control-label">Surname 1</label>
+                            <div class="form-group{{ $errors->has('lastName1') ? ' has-error' : '' }}">
+                                <label for="lastName1" class="col-md-4 control-label">Surname 1</label>
 
                                 <div class="col-md-6">
-                                    <input id="apelido1" type="text" class="form-control" name="apelido1" value="{{ old('apelido1') }}" required>
+                                    <input id="lastName1" type="text" class="form-control" name="lastName1" value="{{ old('lastName1') }}" required>
 
-                                    @if ($errors->has('apelido1'))
+                                    @if ($errors->has('lastName1'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('apelido1') }}</strong>
+                                        <strong>{{ $errors->first('lastName1') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('apelido2') ? ' has-error' : '' }}">
-                                <label for="apelido2" class="col-md-4 control-label">Surname 2</label>
+                            <div class="form-group{{ $errors->has('lastName2') ? ' has-error' : '' }}">
+                                <label for="lastName2" class="col-md-4 control-label">Surname 2</label>
 
                                 <div class="col-md-6">
-                                    <input id="apelido2" type="text" class="form-control" name="apelido2" required>
+                                    <input id="lastName2" type="text" class="form-control" name="lastName2" required>
 
-                                    @if ($errors->has('apelido2'))
+                                    @if ($errors->has('lastName2'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('apelido2') }}</strong>
+                                        <strong>{{ $errors->first('lastName2') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('direccion') ? ' has-error' : '' }}">
-                                <label for="direccion" class="col-md-4 control-label">Address</label>
+                            <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                <label for="address" class="col-md-4 control-label">Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="direccion" type="text" class="form-control" name="direccion" required>
+                                    <input id="address" type="text" class="form-control" name="address" required>
 
-                                    @if ($errors->has('direccion'))
+                                    @if ($errors->has('address'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('direccion') }}</strong>
+                                        <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                                <label for="telefono" class="col-md-4 control-label">Telephone</label>
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <label for="phone" class="col-md-4 control-label">Telephone</label>
 
                                 <div class="col-md-6">
-                                    <input id="telefono" type="tel" class="form-control" name="telefono" required>
+                                    <input id="phone" type="tel" class="form-control" name="phone" required>
 
-                                    @if ($errors->has('telefono'))
+                                    @if ($errors->has('phone'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('telefono') }}</strong>
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -126,12 +126,12 @@
                         @endif
                         <!--
                         |
-                        | Se o rol é Familiar, completar formulario Familiar
+                        |If patient, complete form
                         |
                         -->
-                        @if(Auth::User()->rol == 'Familiar')
-                        <h6>You are a Relative</h6>
-                        <form class="form-horizontal" method="POST" action="{{ route('familiar') }}">
+                        @if(Auth::User()->rol == 'Patient')
+                        <h6>You are a Patient</h6>
+                        <form class="form-horizontal" method="POST" action="{{ route('patient') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('NIF') ? ' has-error' : '' }}">
@@ -162,163 +162,57 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('apelido1') ? ' has-error' : '' }}">
-                                <label for="apelido1" class="col-md-4 control-label">Surname 1</label>
+                            <div class="form-group{{ $errors->has('lastName1') ? ' has-error' : '' }}">
+                                <label for="lastName1" class="col-md-4 control-label">Surname 1</label>
 
                                 <div class="col-md-6">
-                                    <input id="apelido1" type="text" class="form-control" name="apelido1" value="{{ old('apelido1') }}" required>
+                                    <input id="lastName1" type="text" class="form-control" name="lastName1" value="{{ old('lastName1') }}" required>
 
-                                    @if ($errors->has('apelido1'))
+                                    @if ($errors->has('lastName1'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('apelido1') }}</strong>
+                                        <strong>{{ $errors->first('lastName1') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('apelido2') ? ' has-error' : '' }}">
-                                <label for="apelido2" class="col-md-4 control-label">Surname 2</label>
+                            <div class="form-group{{ $errors->has('lastName2') ? ' has-error' : '' }}">
+                                <label for="lastName2" class="col-md-4 control-label">Surname 2</label>
 
                                 <div class="col-md-6">
-                                    <input id="apelido2" type="text" class="form-control" name="apelido2" required>
+                                    <input id="lastName2" type="text" class="form-control" name="lastName2" required>
 
-                                    @if ($errors->has('apelido2'))
+                                    @if ($errors->has('lastName2'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('apelido2') }}</strong>
+                                        <strong>{{ $errors->first('lastName2') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('direccion') ? ' has-error' : '' }}">
-                                <label for="direccion" class="col-md-4 control-label">Address</label>
+                            <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                <label for="address" class="col-md-4 control-label">Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="direccion" type="text" class="form-control" name="direccion" required>
+                                    <input id="address" type="text" class="form-control" name="address" required>
 
-                                    @if ($errors->has('direccion'))
+                                    @if ($errors->has('address'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('direccion') }}</strong>
+                                        <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                                <label for="telefono" class="col-md-4 control-label">Telephone</label>
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <label for="phone" class="col-md-4 control-label">Telephone</label>
 
                                 <div class="col-md-6">
-                                    <input id="telefono" type="tel" class="form-control" name="telefono" required>
+                                    <input id="phone" type="tel" class="form-control" name="phone" required>
 
-                                    @if ($errors->has('telefono'))
+                                    @if ($errors->has('phone'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('telefono') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('CCC') ? ' has-error' : '' }}">
-                                <label for="CCC" class="col-md-4 control-label">CCC</label>
-
-                                <div class="col-md-6"> <!-- Facer validación e formato-->
-                                    <input id="CCC" type="text" class="form-control" name="CCC" required>
-
-                                    @if ($errors->has('CCC'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('CCC') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <input id="rol" type="hidden" value="{{ Auth::User()->rol }}" name="rol">
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Register
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-                        @endif
-                        <!--
-                        |
-                        | Se o rol é Empresa, completar formulario Empresa
-                        |
-                        -->
-                        @if(Auth::User()->rol == 'Empresa')
-                        <h6>You are a Company</h6>
-                        <form class="form-horizontal" method="POST" action="{{ route('empresa') }}">
-                            {{ csrf_field() }}
-
-                            <div class="form-group{{ $errors->has('CIF') ? ' has-error' : '' }}">
-                                <label for="CIF" class="col-md-4 control-label">CIF</label>
-
-                                <div class="col-md-6">
-                                    <input id="CIF" type="text" class="form-control" name="CIF" required>
-
-                                    @if ($errors->has('CIF'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('CIF') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Name</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ Auth::User()->name }}" required autofocus>
-
-                                    @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('nomeContacto') ? ' has-error' : '' }}">
-                                <label for="nomeContacto" class="col-md-4 control-label">Contact Name</label>
-
-                                <div class="col-md-6">
-                                    <input id="nomeContacto" type="text" class="form-control" name="nomeContacto" value="{{ old('nomeContacto') }}" required>
-
-                                    @if ($errors->has('nomeContacto'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('nomeContacto') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('direccion') ? ' has-error' : '' }}">
-                                <label for="direccion" class="col-md-4 control-label">Address</label>
-
-                                <div class="col-md-6">
-                                    <input id="direccion" type="text" class="form-control" name="direccion" required>
-
-                                    @if ($errors->has('direccion'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('direccion') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                                <label for="telefono" class="col-md-4 control-label">Telephone</label>
-
-                                <div class="col-md-6">
-                                    <input id="telefono" type="tel" class="form-control" name="telefono" required>
-
-                                    @if ($errors->has('telefono'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('telefono') }}</strong>
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -352,6 +246,33 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('contactName') ? ' has-error' : '' }}">
+                                <label for="contactName" class="col-md-4 control-label">Contact Name</label>
+
+                                <div class="col-md-6">
+                                    <input id="contactName" type="text" class="form-control" name="contactName" value="{{ old('contactName') }}" required>
+
+                                    @if ($errors->has('contactName'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('contactName') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('contactPhone') ? ' has-error' : '' }}">
+                                <label for="contactPhone" class="col-md-4 control-label">Contact Phone</label>
+
+                                <div class="col-md-6">
+                                    <input id="contactPhone" type="text" class="form-control" name="contactPhone" value="{{ old('contactPhone') }}" required>
+
+                                    @if ($errors->has('contactPhone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('contactPhone') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <input id="rol" type="hidden" value="{{ Auth::User()->rol }}" name="rol">
 
                             <div class="form-group">
@@ -364,96 +285,11 @@
 
                         </form>
                         @endif
-
                     </div>
                 @endif
                 
                 </div>
-                <!--
-                |
-                |   Poñelo bonito para recibir Usuarios com rexistro completo, poñer links e botons exclusivos para eles
-                |
-                -->
-                @if($id!=0)
-                    <h3>Wel Come {{ Auth::User()->rol }}s, <strong><em>{{ Auth::User()->name }}</em></strong></h3>
-<!-- EMPLOYEES  -->
-                    @if(Auth::User()->rol == 'Empregado')
-                        <div class="panel-heading">What to do</div>
-                        <div class="panel-body">
-                            <div class="panel-body">
-                                <a href="/empregado/{{$id}}">
-                                 <button class="btn btn-primary" >SEE/EDIT Profile</button>
-                                </a>
-                                <a href="/empregado/{{$id}}/delete">
-                                <button class="btn btn-primary" >Delete Profile</button></a>
-                               
-                            </div>
-                            <div class="panel-body">
-                                <a href="/empregado/{{$id}}/treatments">
-                                <button class="btn btn-primary" >List All Your Treatments</button></a>
-                                <a href="/empregado/{{$id}}/treatments/{{$userId}}">
-                                <button class="btn btn-primary" >List Treatments by User</button></a>
-                                <a href="/empregado/{{$id}}/usuarios">
-                                <button class="btn btn-primary" >List Users</button></a>
-                            </div>
-                        </div>
-                    @endif
-<!-- RELATIVES  -->
-                    @if(Auth::User()->rol == 'Familiar')
-                        <div class="panel-heading">What to do</div>
-                        <div class="panel-body">
-                            <div class="panel-body">
-                                <button class="btn btn-primary" >Add Relative</button>
-                                <button class="btn btn-primary" >Delete Relative</button>
-                                <button class="btn btn-primary" >Edit Relative</button>
-                                <button class="btn btn-primary" >List Relatives</button>
-                                <button class="btn btn-primary" >List Your Relative's Treatments</button>
-                            </div>
-                            <div class="panel-body">
-                                <button class="btn btn-primary" >Edit Profile</button>
-                                <button class="btn btn-primary" >Delete Profile</button>
-                            </div>
-                            <div class="panel-body">
-                                <button class="btn btn-primary" >List Treatments</button>
-                                <button class="btn btn-primary" >Ask for Treatment</button>
-                            </div>
-                        </div>
-                    @endif
-<!-- COMPANIES  -->
-                    @if(Auth::User()->rol == 'Empresa')
-                        <div class="panel-heading">What to do</div>
-                        <div class="panel-body"> 
-                            <div class="panel-heading col-md-10">Employees</div>
-                            <div class="panel-body col-md-10"> 
-                                <button class="btn btn-primary col-md-6" >Add Employee</button>
-                                <button class="btn btn-primary col-md-6" >Delete Employee</button>
-                                <button class="btn btn-primary col-md-6" >List Your Employee</button>
-                            </div>
-                            <div class="panel-heading col-md-10">Profile</div>
-                            <div class="panel-body col-md-10"> 
-                                <button class="btn btn-primary col-md-6" >See Profile</button>
-                                <button class="btn btn-primary col-md-6" >Edit Profile</button>
-                                <button class="btn btn-primary col-md-6" >Delete Profile</button>
-                            </div>
-                            <div class="panel-heading col-md-10">Services</div>
-                            <div class="panel-body col-md-10"> 
-                                <button class="btn btn-primary col-md-6" >Add Service</button>
-                                <button class="btn btn-primary col-md-6" >List All Services</button>
-                                <button class="btn btn-primary col-md-6" >List Your Services</button>
-                            </div>
-                            <div class="panel-heading col-md-10">Treatments</div>
-                            <div class="panel-body col-md-10"> 
-                                <button class="btn btn-primary col-md-6" >Add Treatment</button>
-                                <button class="btn btn-primary col-md-6" >Edit Treatment</button>
-                                <button class="btn btn-primary col-md-6" >Delete Treatment</button>
-                                <button class="btn btn-primary col-md-6" >List Your Treatments</button>
-                                <button class="btn btn-primary col-md-6" >List Treatments by User</button>
-                                <button class="btn btn-primary col-md-6" >List Treatments by Employee</button>
-                                <button class="btn btn-primary col-md-6" >List Treatments by Service</button>
-                            </div>
-                        </div>
-                    @endif
-                @endif
+               
             </div>
         </div>
     </div>

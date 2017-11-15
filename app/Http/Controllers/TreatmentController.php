@@ -4,7 +4,7 @@ namespace SocioSanitario\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ServizoController extends Controller
+class TreatmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,23 @@ class ServizoController extends Controller
      */
     public function create()
     {
-        //
+        //Create an object with all the fields for the DB
+        $registro= new Treatment;
+
+        // Insert on table with request data
+        $registro->dateTimeStart = $request['dateTimeStart'];
+        $registro->dateTimeEnd = $request['dateTimeEnd'];
+        $registro->done = $request['done'];
+        $registro->reason = $request['reason'];
+        $registro->idPat = $request['idPat'];
+        $registro->idServ = $request['idServ'];
+        $registro->idEmp = $request['idEmp'];
+
+        //Save
+        $registro->save();
+
+        // Redirect to HOME
+        return redirect('/home');
     }
 
     /**
@@ -34,7 +50,16 @@ class ServizoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'dateTimeStart'=> 'required|min:5',
+            'done'=>'default:1',
+            'idPat'=>'required',
+            'idServ' => 'required',
+            'idEmp'=> 'required'
+            ]);
+
+        Treatment::create($request->all());
+        return redirect('/treatments');
     }
 
     /**
@@ -45,7 +70,8 @@ class ServizoController extends Controller
      */
     public function show($id)
     {
-        //
+        $treatment = Treatment::find($id); // builder instance
+        return view('treatment_show', compact('treatment'));
     }
 
     /**
@@ -56,7 +82,8 @@ class ServizoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $treatment = Treatment::find($id); // builder instance
+        return view('treatment_show', compact('treatment'))
     }
 
     /**
@@ -79,6 +106,8 @@ class ServizoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Delete the Treatment in the Treatments table
+        DB::table('treatments')->where('id','=',$id)->delete();
+        return redirect('/');
     }
 }

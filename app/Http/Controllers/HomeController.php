@@ -27,40 +27,36 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // cando se rexistra como user devolve a vista home, pasando por este controller
-        // recollo o id de User activo
+    { 
+        // when register as user returns home, through this controller
+        // use the active id User
         $idUser = Auth::User()->id;
-        // Comprobo se están rexistrados na táboa correspondente ao rol marcado.
+        // Make sure they are registered on their appropiate table
         $consulta=NULL;
-
        
-        if(Auth::User()->rol == 'Empregado'){
-            $consulta = DB::table('empregados')
-            ->select('empregados.id')
-            ->where('empregados.idUser', '=', $idUser)
+        if(Auth::User()->rol == 'Employee'){
+            $consulta = DB::table('employees')
+            ->select('employees.id')
+            ->where('employees.idUser', '=', $idUser)
             ->get();
-        }elseif (Auth::User()->rol == 'Familiar') {
-            $consulta = DB::table('familiares')
-            ->select('familiares.id')
-            ->where('familiares.idUser', '=', $idUser)
-            ->get();
-        }elseif (Auth::User()->rol == 'Empresa') {
-            $consulta = DB::table('empresas')
-            ->select('empresas.id')
-            ->where('empresas.idUser', '=', $idUser)
+        }elseif (Auth::User()->rol == 'Patient') {
+            $consulta = DB::table('patients')
+            ->select('patients.id')
+            ->where('patients.idUser', '=', $idUser)
             ->get();
         }
 
         if(!isset($consulta[0]->id)){
             $id=0;
+            return view('home')->with('id', $id);
         }else{
             $id=$consulta[0]->id;
+            return view('welcomeUsers')->with('id', $id);
         }
         
         //return $id.' '.Auth::User()->rol;
 
-        return view('home')->with('id', $id);
+        
     }
 
 }

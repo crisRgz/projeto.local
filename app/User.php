@@ -23,27 +23,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // Relación de User con Familiar:
-    public function familiar()
+    // User - Employee:
+    public function employees()
     {
-        // 1 user pode definir 1 ou mais familiares
-        // $this fai referencia ao obxecto que tenhamos nese momento de user.
-        return $this->hasMany('SocioSanitario\Familiar');
+        // 1 user N Employees
+        return $this->hasMany('SocioSanitario\Employee');
     }
 
-    // Relación de User con Empregado:
-    public function empregado()
+    // User - Patient:
+    public function patients()
     {
-        // 1 user define a un ou máis empregados
-        // $this fai referencia ao obxecto que tenhamos nese momento de user.
-        return $this->hasMany('SocioSanitario\Empregado');
-    }
-
-     // Relación de User con Empresa:
-    public function empresa()
-    {
-        // 1 user define a un ou máis empresas
-        // $this fai referencia ao obxecto que tenhamos nese momento de user.
-        return $this->hasMany('SocioSanitario\Empresa');
+        // 1 user N Patients
+        return $this->hasMany('SocioSanitario\Patient');
     }
 }
