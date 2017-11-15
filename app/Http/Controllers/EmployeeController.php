@@ -21,7 +21,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-
+        $employees = Employee::All();
+        return view('employees_List', compact('employees'));
     }
 
     /**
@@ -84,14 +85,7 @@ class EmployeeController extends Controller
         return view('employee_show', compact('employee'));
     }
 
-    /*
-    List of all treatments in course by Employee id
-     
-    public function listTreatments(Employee $Employee)
-    {
-        $empoTreat = Tratamento::where('idEmpo', $Employee->id)->with('usuario')->get();
-        return view('Employee', compact('Employee', 'empoTreat'));
-    }*/
+    
     /*
     List of all treatments by Employee id and idUser 
     
@@ -123,7 +117,25 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee=Employee::find($id);
+        // List of received fields
+        $employee->name = $request->input('name');
+        $employee->lastName1 = $request->input('lastName1');
+        $employee->lastName2 = $request->input('lastName2');
+        $employee->address = $request->input('address');
+        $employee->phone = $request->input('phone');
+        
+        $employee->save();
+
+        return view('employee_show', compact('employee'));
+    }
+    /*
+    List of all treatments in course by Employee id
+     */
+    public function treatments(Employee $employee)
+    {
+        $empoTreat = Treatment::where('idEmp', $employee->id)->with('patient')->get();
+        return view('treatments_list', compact('employee', 'empoTreat'));  
     }
     
     /**
@@ -135,10 +147,10 @@ class EmployeeController extends Controller
     // Control constraint to delete from 1 side and the other
     public function destroy($id)
     { 
-        // Delete the user in USER table
-        DB::table('users')->where('id','=',Auth::User()->id )->delete();
         // Delete the employee in the Employee table
         DB::table('employees')->where('id','=',$id)->delete();
+        // Delete his user in USER table
+        DB::table('users')->where('id','=',Auth::User()->id )->delete();
        
         return redirect('/');
     }

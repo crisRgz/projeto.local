@@ -8,12 +8,13 @@
 			<div class="panel-heading">TREATMENTS</div>
 			    employee->iduser: {{$employee->idUser}} <br>
 			    auth()->id(): {{auth()->id()}} <br>
-		        @foreach($employee->tratamentos as $tratamento)
+			    {{$empoTreat}}
+		        @foreach($employee->treatments as $tratamento)
 		        <div class="panel-body">
 		            ID: {{$tratamento->id}}</br>
-		            USUARIO NAME: {{$tratamento->usuario->nome}}</br>
-		            ADDRESS: {{$tratamento->usuario->address}}</br>
-		            PHONE: {{$tratamento->usuario->phone}}</br>
+		            USUARIO NAME: {{$tratamento->patient->name}}</br>
+		            ADDRESS: {{$tratamento->patient->address}}</br>
+		            PHONE: {{$tratamento->patient->phone}}</br>
 		        </div>
 		        @endforeach
 			</div>

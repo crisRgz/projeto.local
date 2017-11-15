@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 			<!-- Edit form for employee profile -->
 			<div class="panel panel-default">
 				<div class="panel-heading">EDIT</div>
 				<div class="panel-body">
 
-					<form method="POST" action="/employee/{{ $employee->id }}">
+					<form method="POST" action="/employee/{{ $employee->id }}/edit">
 
 						{{ csrf_field() }}
 						<div class="form-group">

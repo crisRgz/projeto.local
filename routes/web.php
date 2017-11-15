@@ -32,7 +32,9 @@ Route::get('/home', 'HomeController@index')->name('home'); // after login
 Route::post('/employee', 'EmployeeController@create')->name('employee');  // create new employee
 Route::get('/employee/{id}', 'EmployeeController@show');  // list 1 employee
 Route::get('/employee/{id}/edit', 'EmployeeController@edit');// edit 1 employee
-Route::delete('/employee/{id}/delete', 'EmployeeController@destroy'); //delete 1 employee
+Route::post('/employee/{id}/edit', 'EmployeeController@update');// edit 1 employee
+Route::get('/employee/{id}/delete', 'EmployeeController@destroy'); //delete 1 employee
+Route::get('/employee/{id}/treatments', 'EmployeeController@treatments');  // list all treatments for this employee
 
 /*
  */

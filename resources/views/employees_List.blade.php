@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Todos os empregados</title>
-</head>
-<body>
+@extends('layouts.app')
 
-	@foreach ($empregadoEmpresa as $empoEmpa)
-	<a href="/empregado/{{ $empoEmpa->idEmpo }}">
-		<p>
-			Empregado id: {{ $empoEmpa->idEmpo }} 
-			<br>
-			idUser: {{ $empoEmpa->idUser }} - idEmpa: {{ $empoEmpa->idEmpa}} - nif: {{ $empoEmpa->NIFEmpo }} - nome: {{ $empoEmpa->nomeEmpo }} {{ $empoEmpa->apelido1Empo }} {{ $empoEmpa->apelido2Empo }}
-		</p>
-	</a>
-	@endforeach
+@section('content')
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">EMPLOYEE PROFILE</div>
+				<div class="panel-body">
+					@foreach ($employees as $employee)
+					<a href="/empregado/{{ $employee->idEmp }}">
+						<p>
+							Employee id: {{ $employee->idEmp }} 
+							<br>
+							idUser: {{ $employee->idUser }}  - nif: {{ $employee->NIF }} - nome: {{ $employee->name }} {{ $employee->lastName1 }} {{ $employee->lastName2 }}
+						</p>
+					</a>
+					@endforeach
+				</div>
+			</div>
+			<!---->
 
-</body>
-</html>
+			<a href="/home">Back</a>
+		</div>
+
+	</div>
+	@endsection
