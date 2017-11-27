@@ -6,20 +6,22 @@ use Redirect;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use SocioSanitario\Treatment;
+use SocioSanitario\Service;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class ServizoController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $services = Service::All(); // builder instance
+        return view('services_list', compact('services','id'));
     }
 
     /**
@@ -68,10 +70,10 @@ class ServizoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $idPat)
     {
         $service = Service::find($id); // builder instance
-        return view('service_show', compact('service'));
+        return view('service_show', compact('service','idPat'));
     }
 
     /**

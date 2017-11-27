@@ -9,11 +9,14 @@ class Treatment extends Model
 	protected $table='treatments';
 
 	// Atributos que se poden asignar de xeito masivo.
-	protected $fillable = array('dateTimeStart','dateTimeEnd','done','reason','idPat','idServ','idEmp');
+	protected $fillable = array('dateStart','dateEnd','monthlyHours','timeStart','timeEnd','done','reason','idPat','idServ','idEmp');
 	/*
 	id       -> autoincrement
-	dateTimeStart  -> Beginning date time of the service
-	dateTimeEnd  -> Finishing date time of the service
+	dateStart  -> Beginning date of the service
+	dateEnd  -> Finishing date of the service
+	monthlyHours -> Assigned monthly hours
+	timeStart -> Time to start treatment
+	timeEnd -> Time to end treatment.
 	done -> boolean => was it done?
 	reason -> vacations/not at home/emergencie/etc.
 	idPat  -> FK id Patient
@@ -27,7 +30,7 @@ class Treatment extends Model
 	public function patient()
 	{
 		// 1 Treatmnet 1 Patient.
-		return $this->belongsTo('SocioSanitario\Patient', 'idFam');
+		return $this->belongsTo('SocioSanitario\Patient', 'idPat');
 	}
 
 	// Treatments - Employees
@@ -41,6 +44,6 @@ class Treatment extends Model
 	public function service()
 	{
 		// 1 Treatment 1 service.
-		return $this->belongsTo('SocioSanitario\Service');
+		return $this->belongsTo('SocioSanitario\Service','idServ');
 	}
 }

@@ -12,16 +12,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class UsuarioController extends Controller
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index($employeeId)
+    {   
+        $employee = Employee::find($employeeId);
+        return view('patients_list', compact('employee'));
     }
 
     /**
@@ -29,7 +30,7 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //Create an object with all the fields for the DB
         $registro= new Patient;
@@ -41,7 +42,7 @@ class UsuarioController extends Controller
         $registro->lastName2 = $request['lastName2'];
         $registro->address = $request['address'];
         $registro->phone = $request['phone'];
-        $registro->contactPerson = $request['contactPerson'];
+        $registro->contactName = $request['contactName'];
         $registro->contactPhone = $request['contactPhone'];
         $registro->lat = $request['lat'];
         $registro->long = $request['long'];
@@ -70,7 +71,7 @@ class UsuarioController extends Controller
             'address'=> 'min:10',
             'phone'=> 'required|min:9|numeric',
             'idUser'=> Auth::user()->id,
-            'contactPerson'=>'required|min:5',
+            'contactName'=>'required|min:5',
             'contactPhone'=>'required|min:9|numeric',
             'lat'=>'float',
             'long'=>'float'
@@ -102,7 +103,7 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $patient = Patient::find($id); // builder instance
-        return view('patient_edit', compact('patient'))
+        return view('patient_edit', compact('patient'));
     }
 
     /**
@@ -114,7 +115,20 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $patient=Patient::find($id);
+        // List of received fields
+        $patient->name = $request->input('name');
+        $patient->lastName1 = $request->input('lastName1');
+        $patient->lastName2 = $request->input('lastName2');
+        $patient->address = $request->input('address');
+        $patient->phone = $request->input('phone');
+        $patient->contactName = $request->input('contactName');
+        $patient->contactPhone = $request->input('contactPhone');
+        $patient->lat = $request->input('lat');
+        $patient->long = $request->input('long');
+        $patient->save();
+
+        return view('patient_show', compact('patient'));
     }
 
     /**

@@ -38,13 +38,19 @@
                         <div class="panel-heading">What to do</div>
                         <div class="panel-body">
                             <div class="panel-body">
-                                <button class="btn btn-primary" >See Profile</button>
-                                <button class="btn btn-primary" >Edit Profile</button>
-                                <button class="btn btn-primary" >Delete Profile</button>
+                                <a href="/patient/{{$id}}" class="btn btn-primary" >
+                                SEE Profile
+                                </a>
+                                <a href="/patient/{{$id}}/edit" class="btn btn-primary" >
+                                EDIT Profile
+                                </a>
+                                <a href="/patient/{{$id}}/delete" class="btn btn-primary" >
+                                Delete Profile</a>
+                               
                             </div>
                             <div class="panel-body">
-                                <button class="btn btn-primary" >List Available Treatments</button>
-                                <button class="btn btn-primary" >Ask for Treatment</button>
+                                <a href="/services_list/{{$id}}" class="btn btn-primary" >List Available Services</a>
+                                <a href="/patient/{{$id}}/treatments" class="btn btn-primary" >List treatments</a>
                             </div>
                         </div>
                     @endif

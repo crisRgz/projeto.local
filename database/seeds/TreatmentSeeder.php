@@ -19,8 +19,11 @@ class TreatmentSeeder extends Seeder
 		{
 			Treatment::create(
 				[
-					'dateTimeStart'=>$faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
-			        'dateTimeEnd'=>$faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
+					'dateStart'=>$faker->date($format = 'Y-m-d', $max = 'now'),
+			        'dateEnd'=>$faker->date($format = 'Y-m-d', $max = 'now'),
+			        'monthlyHours' => $faker->numberBetween(1,30),
+			        'timeStart' => $faker->time($format = 'H:i', $max = 'now'),
+			        'timeEnd' => $faker->time($format = 'H:i', $max = 'now'),
 			        'done'=>$faker->boolean($chanceOfGettingTrue = 50),
 			        'reason'=>$faker->realText($maxNbChars = 150, $indexSize = 2),
         			'idPat'=>$faker->numberBetween(1,8),

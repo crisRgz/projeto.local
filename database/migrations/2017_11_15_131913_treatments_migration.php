@@ -17,8 +17,11 @@ class TreatmentsMigration extends Migration
         Schema::create('treatments', function (Blueprint $table) {
             $table->increments('id');// id treatments(relation ternaria patients-services-emprployees)
 
-            $table->dateTime('dateTimeStart');     // DATETIME beginning
-            $table->dateTime('dateTimeEnd')->nullable();// DATETIME End
+            $table->dateTime('dateStart');     // DATE beginning
+            $table->dateTime('dateEnd')->nullable();// DATE End
+            $table->integer('monthlyHours');
+            $table->time('timeStart');
+            $table->time('timeEnd');
             $table->boolean('done');// done?
             $table->string('reason')->nullable(); // reasons if not done
 

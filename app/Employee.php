@@ -36,7 +36,7 @@ class Employee extends Model
 	{
 		// 1 Emloyee is 1 user
 		// $this references to the actual Employee.
-		return $this->belongsTo('SocioSanitario\User');
+		return $this->belongsTo('SocioSanitario\User','idUser');
 	}
 
 	// Relationship Employee - patient:
@@ -47,7 +47,7 @@ class Employee extends Model
 	}
 
 	public function patients()
-	{
-	    return $this->belongsToMany(Patient::class, 'treatments', 'idPat');
+	{	// 1 employee N patients
+	    return $this->belongsToMany(Patient::class, 'treatments', 'idEmp', 'idPat');  // assumes idPat is foreign key on pivot for Patient model
 	}
 }

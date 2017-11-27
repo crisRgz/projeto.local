@@ -32,14 +32,13 @@ class Patient extends Model
 	{
 		// 1 Emloyee is 1 user
 		// $this references to the actual Employee.
-		return $this->belongsTo('SocioSanitario\User');
+		return $this->belongsTo('SocioSanitario\User','idUser');
 	}
 
 	// Relationship User - Treatment:
 	public function treatments()
 	{
-		// 1 usuario recibe un/varios tratamentos
-		// $this fai referencia ao obxecto que tenhamos nese momento de Usuario.
-		return $this->hasMany('SocioSanitario\Treatment');
+		// 1 patient N treatments
+		return $this->hasMany('SocioSanitario\Treatment','idPat');
 	}
 }

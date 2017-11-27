@@ -15,7 +15,7 @@ class TreatmentController extends Controller
     public function index($employeeId)
     {   
         $employee = Employee::find($employeeId);
-        return view('treatments_list', compact('employee'));  
+        return view('treatments_list', compact('employee'));
     }
 
     /**

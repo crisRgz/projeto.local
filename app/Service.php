@@ -24,13 +24,13 @@ class Service extends Model
 	public function treatments()
 	{
 		// 1 Service N treatments
-		return $this->hasMany('SocioSanitario\Treatment');
+		return $this->hasMany('SocioSanitario\Treatment','idSer');
 	}
 
 	// Service - Type
-	public function types()
+	public function type()
 	{
 		// 1 service 1 type.
-		return $this->belongsTo('SocioSanitario\Type');
+		return $this->belongsTo('SocioSanitario\Type','idType');
 	}
 }
